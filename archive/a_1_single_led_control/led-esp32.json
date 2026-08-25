@@ -1,0 +1,9 @@
+{
+  "board1": {
+    "outputs": {
+      "digital": {
+        "12": true
+      }
+    }
+  }
+}

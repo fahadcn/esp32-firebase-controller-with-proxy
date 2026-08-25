@@ -1,0 +1,32 @@
+I created this project to learn the basics of IoT development.
+
+[Note: ⚠️ Internal and external links can change anytime, be carefull while using them]
+
+🛠️ Tools:
+    1. Coding: VS Code with the PlatformIO plugin
+    2. Firebase Spark plan (free tier): https://firebase.google.com/pricing
+
+
+📁 All project files are in the "/archive" folder. I will try to keep the projects in sequence. Copy the code from the necessary file in "/archive" to "src\main.cpp" to upload and test it. Below, I briefly explain each project.
+
+*\archive\a_1_single_led_control
+    💡 Controls a single LED. Using a proxy is not mandatory, but I needed one to communicate with the Firebase API from China. The proxy was a VPN running on my local PC.
+     step 1: 
+        1. In Firebase https://firebase.google.com/pricing creat a project 
+        2. Creat "Users" in "Authentication"
+        3. set "Rules" in 'Realtime Database' using given User Id, for read and write permission Example:
+                { "rules": 
+                    { 
+                    ".read": "auth.uid === 'IRBYumRJO7W**************'", 
+                    ".write": "auth.uid === 'IRBYumRJO7W**************'" 
+                    } 
+                }
+        4. Import or make the 'Data', example 
+            \archive\a_1_single_led_control\led-esp32.json
+        5. From "Your App" copy "SDK setup and configuration"
+
+    step 2: 🚀
+        1. Modify .cpp code according to wifi, and "SDK setup and configuration"
+        2. Load to esp32
+    step 3: 🔄 Change the value in 'Realtime Database' 'Data' value and see the change in esp32, example 12:0 LED off, 12:1 LED on 💡
+
