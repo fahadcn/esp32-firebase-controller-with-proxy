@@ -1,4 +1,4 @@
-I created this project to learn the basics of IoT development.
+I created this project begainer friendly basics of IoT development. 🔌 Proxy support is an important part of this embedded system. Since I live in China, I have included proxy support in most projects so I can use Firebase's free tier. In some cases, I will also provide a proxyless version of the code.
 
 [Note: ⚠️ Internal and external links can change anytime, be carefull while using them]
 
