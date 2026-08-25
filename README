@@ -9,7 +9,7 @@ I created this project begainer friendly basics of IoT development. 🔌 Proxy s
 
 📁 All project files are in the "/archive" folder. I will try to keep the projects in sequence. Copy the code from the necessary file in "/archive" to "src\main.cpp" to upload and test it. Below, I briefly explain each project.
 
-*\archive\a_1_single_led_control
+# \archive\a_1_single_led_control
     💡 Controls a single LED. Using a proxy is not mandatory, but I needed one to communicate with the Firebase API from China. The proxy was a VPN running on my local PC.
      step 1: 
         1. In Firebase https://firebase.google.com/pricing creat a project 
@@ -29,4 +29,7 @@ I created this project begainer friendly basics of IoT development. 🔌 Proxy s
         1. Modify .cpp code according to wifi, and "SDK setup and configuration"
         2. Load to esp32
     step 3: 🔄 Change the value in 'Realtime Database' 'Data' value and see the change in esp32, example 12:0 LED off, 12:1 LED on 💡
+
+# archive\a_2_multi_led
+    Same as prvious project, just insted of one control 3 led
 
