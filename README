@@ -1,35 +1,47 @@
-I created this project begainer friendly basics of IoT development. 🔌 Proxy support is an important part of this embedded system. Since I live in China, I have included proxy support in most projects so I can use Firebase's free tier. In some cases, I will also provide a proxyless version of the code.
+# ESP32 IoT Controller
 
-[Note: ⚠️ Internal and external links can change anytime, be carefull while using them]
+I created this project to make learning the basics of IoT development beginner-friendly. 🔌 Proxy support is an important part of this embedded system. Since I live in China, I have included proxy support in most projects so I can use Firebase's free tier. In some cases, I will also provide a proxyless version of the code.
 
-🛠️ Tools:
-    1. Coding: VS Code with the PlatformIO plugin
-    2. Firebase Spark plan (free tier): https://firebase.google.com/pricing
+> [!NOTE]
+> ⚠️ Internal and external links may change at any time. Please be careful when using them.
 
+## Tools
 
-📁 All project files are in the "/archive" folder. I will try to keep the projects in sequence. Copy the code from the necessary file in "/archive" to "src\main.cpp" to upload and test it. Below, I briefly explain each project.
+- 🛠️ VS Code with the PlatformIO plugin
+- 🔥 Firebase Spark plan (free tier): https://firebase.google.com/pricing
 
-# \archive\a_1_single_led_control
-    💡 Controls a single LED. Using a proxy is not mandatory, but I needed one to communicate with the Firebase API from China. The proxy was a VPN running on my local PC.
-     step 1: 
-        1. In Firebase https://firebase.google.com/pricing creat a project 
-        2. Creat "Users" in "Authentication"
-        3. set "Rules" in 'Realtime Database' using given User Id, for read and write permission Example:
-                { "rules": 
-                    { 
-                    ".read": "auth.uid === 'IRBYumRJO7W**************'", 
-                    ".write": "auth.uid === 'IRBYumRJO7W**************'" 
-                    } 
-                }
-        4. Import or make the 'Data', example 
-            \archive\a_1_single_led_control\led-esp32.json
-        5. From "Your App" copy "SDK setup and configuration"
+## Project Files
 
-    step 2: 🚀
-        1. Modify .cpp code according to wifi, and "SDK setup and configuration"
-        2. Load to esp32
-    step 3: 🔄 Change the value in 'Realtime Database' 'Data' value and see the change in esp32, example 12:0 LED off, 12:1 LED on 💡
+📁 All project files are in the `archive` folder. I will try to keep the projects in sequence. To upload and test a project, copy the required code from `archive` to `src/main.cpp`. Below, I briefly explain each project.
 
-# archive\a_2_multi_led
-    Same as prvious project, just insted of one control 3 led
+## `archive/a_1_single_led_control`
+
+💡 Controls a single LED using one-way control. A change on the server triggers a change in the ESP32 state; the ESP32 only reads from the server and does not write to it.
+
+Using a proxy is not mandatory, but I needed one to communicate with the Firebase API from China. The proxy is a VPN running on my local PC.
+
+### Setup
+
+1. Create a project in Firebase: https://firebase.google.com/pricing
+2. Create users in **Authentication**.
+3. In **Realtime Database**, set the read and write rules using the user ID. Example:
+
+   ```json
+   {
+     "rules": {
+       ".read": "auth.uid === 'IRBYumRJO7W**************'",
+       ".write": "auth.uid === 'IRBYumRJO7W**************'"
+     }
+   }
+   ```
+
+4. Import or create the database data. Example file: `archive/a_1_single_led_control/led-esp32.json`.
+5. From **Your App**, copy the **SDK setup and configuration** values.
+6. Update the `.cpp` code with your Wi-Fi and Firebase configuration.
+7. Upload the code to the ESP32.
+8. Change the value in **Realtime Database** and observe the ESP32. For example, `12:0` turns the LED off and `12:1` turns it on. 🔄💡
+
+## `archive/a_2_multi_led`
+
+This project uses the same one-way control method as the previous project, but controls three LEDs instead of one.
 
